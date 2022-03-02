@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studying_provider/screens/dashboard/dashboard.dart';
+import 'package:studying_provider/screens/tela%20inicial/home_screen.dart';
 
 import 'models/saldo.dart';
 import 'models/transferencias.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: Dashboard(),
+      home:  HomeScreen(),
     );
   }
 }

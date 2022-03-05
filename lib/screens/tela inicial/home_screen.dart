@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studying_provider/screens/card/horizontal_card.dart';
 import 'package:studying_provider/screens/dashboard/dashboard.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   child: Text("Cadastrar"),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Dashboard()));
+                        MaterialPageRoute(builder: (context) => BuildCards()));
                   },
                 ),
               ],

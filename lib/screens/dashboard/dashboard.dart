@@ -10,52 +10,15 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow[100],
 
       body: ListView(
         children: [
           Align(alignment: Alignment.topCenter, child: SaldoCard()),
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.yellow[200]),
-                ),
-                child: Text(
-                  "Receber depósito",
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return FormularioDeposito();
-                  }));
-                },
-              ),
-              ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.yellow[600]),
-                  ),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return FormularioTransferencia();
-                    }));
-                  },
-                  child: Text(
-                    "Nova transferencia",
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ))
-            ],
-          ),
-
-          UltimasTransferencias(),
+          SizedBox(height: 30),
           BuildCards(),
+          SizedBox(height: 30),
+          UltimasTransferencias(),
 
         ],
       ),

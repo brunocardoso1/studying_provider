@@ -1,55 +1,55 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
+import 'package:studying_provider/screens/deposito/formulario.dart';
+import 'package:studying_provider/screens/transferencia/formulario.dart';
 
 class BuildCards extends StatelessWidget {
-  List<int> data = [1, 2, 3, 4, 5];
-
-  Widget buildCard(BuildContext context, int index) {
-    if (index == data.length) {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    } else {
-      return Container(
-        width: 150,
-        child: Column(
-          children: [
-            Container(
-              color: Colors.yellow,
-              width: 150,
-              height: 200,
-              child: Center(
-                  child: Text(
-                '${data[index]}',
-                style: TextStyle(fontSize: 40),
-              )),
-            ),
-          ],
-        ),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: 100,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
         children: [
-          Expanded(
-              child: ScrollSnapList(
-            itemBuilder: buildCard,
-            itemSize: 50,
-            dynamicItemSize: true,
-            onItemFocus: null,
-            onReachEnd: () {
-              print('Done!');
-            },
-            itemCount: data.length,
-          ))
+          Padding(padding: EdgeInsets.only(left: 12)),
+          buildCard(context, Icons.arrow_downward_sharp, "Receber depósito", FormularioDeposito()),
+          buildCard(context, Icons.send, "Nova transferencia", FormularioTransferencia()),
+          buildCard(context, Icons.attach_money, "Pagar", null),
         ],
+      ),
+    );
+  }
+
+  Widget buildCard(context, IconData icone, String title, Widget Navigate) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 12),
+      child: InkWell(
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Navigate,));
+        },
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(icone),
+              ),
+              Text(
+                "$title",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          decoration: BoxDecoration(
+            color: Colors.orange[300],
+            borderRadius: BorderRadius.circular(10),
+          ),
+          width: 200,
+          height: 150,
+        ),
       ),
     );
   }

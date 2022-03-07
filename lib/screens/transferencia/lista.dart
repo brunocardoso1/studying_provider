@@ -45,11 +45,19 @@ class ItemTransferencia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        child: ListTile(
-          leading: Icon(Icons.monetization_on),
-          title: Text(_transferencia.toStringValor()),
-          subtitle: Text(_transferencia.toStringConta()),
-        ));
+    return Container(
+      child: Card(
+          child: ListTile(
+            leading: Icon(Icons.monetization_on, size: 32, color: Colors.green[300],),
+            title: Text(_transferencia.toStringConta(), style: TextStyle(
+              fontSize: 17,
+            ),),
+            subtitle: Text(_transferencia.toStringValor(), style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+            )
+            ),
+          )),
+    );
   }
 }

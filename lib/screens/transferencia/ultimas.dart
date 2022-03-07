@@ -31,7 +31,7 @@ class UltimasTransferencias extends StatelessWidget {
             }
 
             return ListView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.only(left: 50, right: 50, bottom: 20),
               itemCount: tamanho,
               shrinkWrap: true,
               itemBuilder: (context, indice) {

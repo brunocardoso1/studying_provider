@@ -15,10 +15,16 @@ void main() => runApp(MultiProvider(
 
 ));
 
+
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.orange[700],
+        fontFamily: 'sans-serif-condensed',
+      ),
       title: 'Material App',
       home:  HomeScreen(),
     );

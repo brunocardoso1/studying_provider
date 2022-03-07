@@ -48,7 +48,7 @@ class BuildCards extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           width: 200,
-          height: 150,
+          height: 130,
         ),
       ),
     );

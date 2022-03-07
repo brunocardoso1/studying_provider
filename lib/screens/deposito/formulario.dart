@@ -13,9 +13,10 @@ class FormularioDeposito extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("teste formulario"),
+        title: Text("Receber um Deposito"),
       ),
       body: SingleChildScrollView(
+
         child: Column(
           children: [
             Editor(
@@ -24,7 +25,9 @@ class FormularioDeposito extends StatelessWidget {
               rotulo: _rotuloCampoValor,
               icone: Icons.monetization_on,
             ),
-            ElevatedButton(onPressed: () => _criaDeposito(context),
+            ElevatedButton(
+
+                onPressed: () => _criaDeposito(context),
                 child: Text('Confirmar'))
           ],
         ),

@@ -1,4 +1,4 @@
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studying_provider/components/editor.dart';
@@ -54,10 +54,12 @@ class FormularioTransferencia extends StatelessWidget {
   void _criaTransferencia(BuildContext context) {
     final int numeroConta = int.tryParse(_controladorCampoNumeroConta.text);
     final double valor = double.tryParse(_controladorCampoValor.text);
+    final DateTime now = DateTime.now();
+    final String time = DateFormat.MMMEd().format(now);
     final transferenciaValida = _validaTransferencia(context, numeroConta, valor);
 
     if (transferenciaValida) {
-      final novaTransferencia = Transferencia(valor, numeroConta);
+      final novaTransferencia = Transferencia(valor, numeroConta, time);
       
       _atualizaEstado(context, novaTransferencia, valor);
       Navigator.pop(context);

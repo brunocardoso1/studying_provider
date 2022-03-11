@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studying_provider/models/transferencia.dart';
@@ -52,11 +53,26 @@ class ItemTransferencia extends StatelessWidget {
             title: Text(_transferencia.toStringConta(), style: TextStyle(
               fontSize: 17,
             ),),
-            subtitle: Text(_transferencia.toStringValor(), style: TextStyle(
-                fontSize: 20,
-                color: Colors.black,
+            subtitle: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(text: ('Valor: '), style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                  )),
+                  TextSpan(text: _transferencia.toStringValor(), style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),),
+                  TextSpan(text: (_transferencia.toStringTime()), style: TextStyle(
+                    fontSize: 13,
+
+
+                    color: Colors.black
+                  ))
+                ]
+              ),
             )
-            ),
           )),
     );
   }
